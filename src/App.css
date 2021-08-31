@@ -1,38 +1,32 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/****** MAKES SURE CONTENT TAKE UP CONTAINER FULL HEIGHT  ******/
+#page-container {
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0 0 0 30rem;
+  /* background-color: brown; */
 }
-
-.App-link {
-  color: #61dafb;
+/****** GIVES EXTRA BOTTOM SPACE FOR FOOTER TO FIT IN  ******/
+#content-wrapper {
+  padding-bottom: 216px;
+  /* width: 100% !important; */
+  /* overflow-x: scroll; */
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/****** MAKES SURE CONTENT DONT LAP AGAINST CONTAINER WALL ******/
+.main-content {
+  padding: 0 2rem;
+  /* background-color: yellow; */
+}
+/****** MAKES SURE APP DONT TAKE UP THE CONTAINER FULL WIDTH ******/
+.main-content-container {
+  max-width: 117rem;
+  margin: 0 auto;
+  /* background-color: cornflowerblue; */
+}
+/****** MAKES SURE FOOTER REMAINS AT THE BOTTOM WITHIN THE GIVEN BOTTOM SPACE ******/
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 216px; /*Footer height*/
+  padding: 0 2rem;
 }

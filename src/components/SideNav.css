@@ -1,0 +1,25 @@
+.sidenav {
+  /* background-color: aqua; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30rem;
+  height: 100vh;
+  /* background-color: var(--main-white); */
+  color: var(--main-white);
+  /* box-shadow: var(--main-shadow); */
+  z-index: 3;
+  padding: 0 2rem;
+  border-right: solid 1px var(--lite-grey);
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--main-white);
+  color: var(--main-white);
+  /* box-shadow: var(--main-shadow); */
+  z-index: 3;
+  padding: 0 2rem;
+}

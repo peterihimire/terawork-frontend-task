@@ -1,0 +1,49 @@
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon {
+  position: relative;
+}
+.search-icon {
+  color: var(--main-black) !important;
+}
+.circle-icon {
+  color: var(--main-black) !important;
+}
+.input-with-icon .search-icon {
+  position: absolute;
+  top: 17px;
+  left: 0;
+  margin: 0 2rem;
+  /* padding: 9px 16px; */
+}
+
+.input-with-icon input[type="text"] {
+  padding-left: 45px;
+  width: 100%;
+}
+input[type="text"],
+input[type="email"] {
+  padding: 1.5rem 13rem;
+  background-color: var(--lite-grey);
+  border-radius: 0.8rem;
+  border: solid 2px var(--main-grey);
+  color: var(--dark-grey);
+  /* font-size: 2rem; */
+  width: 300px;
+}
+.input-with-icon .circle-icon {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  /* background-color: var(--main-black) !important; */
+  color: #de00a6 !important;
+  margin: 0 2rem;
+  /* padding: 9px 16px; */
+  font-size: 1.5rem !important;
+}
+.form-div {
+  margin: 0 5rem 0 0;
+}

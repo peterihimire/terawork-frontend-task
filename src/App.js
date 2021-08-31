@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import HomePage from "./pages/HomePage";
+// redux things
+import { createStore } from "redux";
+// react-redux - Provider - wraps app , connect - used in  components
+import { Provider } from "react-redux";
+import reducer from "./store/reducer/reducer";
+
+// intial store which is the state
+const initialStore = {
+  movies: ["Anaconda", "Barbie"],
+};
+
+// store
+const store = createStore(reducer, initialStore);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <HomePage />
+      </div>
+    </Provider>
   );
 }
 
