@@ -1,6 +1,7 @@
 import React from "react";
 import SideNav from "../components/SideNav";
 import Search from "../components/Search";
+import Title from '../components/Title'
 import Result from "../components/Result";
 import { connect } from "react-redux";
 
@@ -9,12 +10,9 @@ const HomePage = () => {
     <div id="page-container" className="App">
       <div id="content-wrapper">
         <SideNav />
-        {/* <Banner /> */}
         <div className="main-content">
           <div className="main-content-container">
-            {/* <Title title="Move-out List" />
-          <OccupantColumns />
-          <OccupantList /> */}
+            <Title title="Explore" />
             <Search />
             <Result />
           </div>

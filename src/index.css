@@ -39,3 +39,10 @@ body {
   width: 100%;
   font-size: 1.6rem;
 }
+.btn {
+  padding: 1rem 4rem;
+  background-color: var(--lite-grey);
+  color: var(--main-black);
+  border: none;
+  border-radius: 50px;
+}

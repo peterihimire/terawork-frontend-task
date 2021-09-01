@@ -4,26 +4,17 @@ import searchIcon from "../assets/Search-Black.svg";
 
 const Search = () => {
   return (
-    <div>
+    <div className="search">
       <form>
         <div className="form-group">
           <div className="input-with-icon">
-            {/* <i className="fas fa-key"></i> */}
-            {/* <FaCircle className="circle-icon" /> */}
-            <div>
+            <div className="search-icon-div">
               <img src={searchIcon} alt="search icon" className="search-icon" />
             </div>
-            <input
-              type="text"
-              placeholder="Search"
-              id="search"
-              name="search"
-            />
-            {/* <i className="fas fa-eye"></i> */}
-            {/* <FaSearch className="search-icon" /> */}
+            <input type="text" placeholder="Search" id="search" name="search" />
           </div>
           <div>
-            <button>search</button>
+            <button className="btn search-btn">Search</button>
           </div>
         </div>
       </form>

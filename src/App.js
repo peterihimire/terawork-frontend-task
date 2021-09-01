@@ -1,5 +1,11 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 // redux things
 import { createStore } from "redux";
 // react-redux - Provider - wraps app , connect - used in  components
@@ -18,7 +24,12 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <HomePage />
+        <Router>
+          <Switch>
+            {/* <HomePage /> */}
+            <Route path="/" exact component={HomePage} />
+          </Switch>
+        </Router>
       </div>
     </Provider>
   );

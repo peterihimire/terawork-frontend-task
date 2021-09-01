@@ -1,3 +1,15 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+}
+.search-icon-div{
+  padding: 0 2rem;
+}
+form {
+  width: 100%;
+}
 .form-group {
   display: flex;
   align-items: center;
@@ -5,44 +17,36 @@
 
 .input-with-icon {
   position: relative;
-}
-.search-icon {
-  color: var(--main-black) !important;
-}
-.circle-icon {
-  color: var(--main-black) !important;
+  width: 100%;
 }
 .input-with-icon .search-icon {
   position: absolute;
-  top: 17px;
+  top: 16px;
   left: 0;
   margin: 0 2rem;
-  /* padding: 9px 16px; */
+  width: 20px;
+  /* padding: 0 2rem 0 2rem; */
 }
 
 .input-with-icon input[type="text"] {
   padding-left: 45px;
   width: 100%;
 }
-input[type="text"],
-input[type="email"] {
-  padding: 1.5rem 13rem;
+input[type="text"] {
+  padding: 1.8rem 4rem 1.8rem 4rem;
   background-color: var(--lite-grey);
-  border-radius: 0.8rem;
+  border-radius: 1.3rem;
   border: solid 2px var(--main-grey);
   color: var(--dark-grey);
-  /* font-size: 2rem; */
-  width: 300px;
+  font-size: 1.6rem;
+  /* width: 500px; */
 }
-.input-with-icon .circle-icon {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  /* background-color: var(--main-black) !important; */
-  color: #de00a6 !important;
-  margin: 0 2rem;
-  /* padding: 9px 16px; */
-  font-size: 1.5rem !important;
+.search-btn {
+  padding: 1.8rem 6rem;
+  background-color: var(--primary-color);
+  color: var(--main-white);
+  margin: 0 0 0 5rem;
+  font-size: 1.6rem;
 }
 .form-div {
   margin: 0 5rem 0 0;
