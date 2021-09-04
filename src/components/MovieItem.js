@@ -1,6 +1,7 @@
 import React from "react";
 import "./MovieItem.css";
 import movieImg from "../assets/img.png";
+import { Link } from "react-router-dom";
 
 const MovieItem = () => {
   return (
@@ -9,7 +10,9 @@ const MovieItem = () => {
         <img src={movieImg} alt="movie item" />
       </div>
       <div className="movie-btn-div">
-        <button className="btn">View</button>
+        <Link to="movie-sidbar-one/" className="btn">
+          View
+        </Link>
       </div>
     </article>
   );

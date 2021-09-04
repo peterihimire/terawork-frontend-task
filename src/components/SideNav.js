@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/Logo.svg";
 import "./SideNav.css";
 import searchIcon from "../assets/Search-White.svg";
-import heartIcon from "../assets/Heart.svg";
+// import heartIcon from "../assets/Heart.svg";
 import { NavLink } from "react-router-dom";
 
 const SideNav = () => {

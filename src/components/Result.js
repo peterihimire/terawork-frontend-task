@@ -17,7 +17,7 @@ const Result = () => {
         {movies.map((movie) => {
           return (
             <div className="" key={movie.id}>
-              <MovieItem key={movie.id} />
+              <MovieItem key={movie.id} movie={movie} />
             </div>
           );
         })}
