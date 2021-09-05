@@ -3,7 +3,7 @@ import SideNav from "../components/SideNav";
 // import Search from "../components/Search";
 // import Title from '../components/Title'
 // import Result from "../components/Result";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 const MovieInfoTwo = () => {
   return (
@@ -15,6 +15,7 @@ const MovieInfoTwo = () => {
           {/* <Title title="Explore" />
           <Search />
           <Result /> */}
+          <h4>Info main</h4>
         </div>
       </div>
     </div>
