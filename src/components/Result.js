@@ -1,9 +1,12 @@
 import React from "react";
 import "./Result.css";
 import movies from "../movie-items";
-import MovieItem from "./MovieItem";
+// import MovieItem from "./MovieItem";
+import "./MovieItem.css";
+import movieImg from "../assets/img.png";
+import { Link } from "react-router-dom";
 
-const Result = () => {
+const Result = (props) => {
   // console.log(movies);
 
   return (
@@ -17,7 +20,17 @@ const Result = () => {
         {movies.map((movie) => {
           return (
             <div className="" key={movie.id}>
-              <MovieItem key={movie.id} movie={movie} />
+              {/* <MovieItem key={movie.id} movie={movie} /> */}
+              <article className="movie-item">
+                <div className="movie-image-div">
+                  <img src={movieImg} alt="movie item" />
+                </div>
+                <div className="movie-btn-div">
+                  <Link to={`${props.match}/${movie.id}`} className="btn">
+                    View
+                  </Link>
+                </div>
+              </article>
             </div>
           );
         })}

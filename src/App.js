@@ -1,8 +1,6 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
-import MovieInfoOne from "./pages/MovieInfoOne";
-import MovieInfoTwo from "./pages/MovieInfoTwo";
-import MovieSideBar from "./components/MovieSideBar";
+// import MovieSideBar from "./pages/MovieSideBar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // redux things
 import { createStore } from "redux";
@@ -24,10 +22,8 @@ function App() {
       <div className="App">
         <Router>
           <Switch>
-            {/* <HomePage /> */}
-            <Route path="/" exact component={HomePage} />
-            <Route path="/movie-one/:id" exact component={MovieInfoOne} />
-            <Route path="/movie-two/:id" exact component={MovieInfoTwo} />
+            <Route path="/movies" exact component={HomePage} />
+            {/* <Route path="/movie-sidebar/:id" exact component={MovieSideBar} /> */}
           </Switch>
         </Router>
       </div>

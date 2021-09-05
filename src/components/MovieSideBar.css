@@ -5,10 +5,10 @@
   width: 100%;
   height: 100%;
   background: rgba(94, 93, 93, 0.726);
-  z-index: 9;
+  z-index: 0;
   transition: all 0.1s linear;
-  /* visibility: hidden; */
-  visibility: visible;
+  visibility: hidden;
+  /* visibility: visible; */
 }
 .transparent-bcg {
   transition-delay: 0.2s;
@@ -16,16 +16,16 @@
 }
 .mobile-nav {
   position: fixed;
-  background: var(--main-white);
+  background: red;
   width: 50%;
   height: 100%;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 3;
   color: var(--main-black);
   box-shadow: 0 0 1.2rem 0 rgba(29, 28, 28, 0.849);
   transition: all 0.5s linear;
-  transform: translateX(-20%);
+  transform: translateX(-100%);
 }
 .mobile-nav-item {
   padding: 1rem 0;
