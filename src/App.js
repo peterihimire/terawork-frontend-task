@@ -22,7 +22,7 @@ function App() {
       <div className="App">
         <Router>
           <Switch>
-            <Route path="/movies" exact component={HomePage} />
+            <Route path="/movies" component={HomePage} />
             {/* <Route path="/movie-sidebar/:id" exact component={MovieSideBar} /> */}
           </Switch>
         </Router>

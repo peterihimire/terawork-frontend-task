@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SideNav from "../components/SideNav";
 import Search from "../components/Search";
 import Title from "../components/Title";
@@ -8,47 +8,88 @@ import "../components/Result.css";
 import movies from "../movie-items";
 
 import movieImg from "../assets/img.png";
-import { Link, useHistory, Route } from "react-router-dom";
+import { Link, useHistory, Route, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Modal from "../components/ErrorModal";
-import "../components/Modal.css";
-import "../components/ErrorModal.css";
+// import Modal from "../components/Modal";
+// import "../components/Modal.css";
+import "../components/MovieSideBar.css";
 
-import { FaExclamationTriangle } from "react-icons/fa";
+import ReactDOM from "react-dom";
+// import "./Backdrop.css";
+
+// import { FaExclamationTriangle } from "react-icons/fa";
 
 const HomePage = (props) => {
+  console.log(props);
+  let location = useLocation();
+  let history = useHistory();
+  console.log(location);
+  console.log(history);
+
+  // For Menu Handler
+  // const [menuState, setMenuState] = useState({
+  //   isOpen: false,
+  // });
+
+  // const openHandler = () => {
+  //   setMenuState({
+  //     isOpen: !menuState.isOpen,
+  //   });
+  // };
+  // const closeHandler = () => {
+  //   setMenuState({
+  //     isOpen: false,
+  //   });
+  // };
+
+  const [menuState, setMenuState] = useState(false);
+
+  const openHandler = () => {
+    setMenuState(true);
+  };
+  const closeHandler = () => {
+    setMenuState(false);
+  };
+
   return (
     <>
       <Route
         path={`${props.match.url}/:id`}
         render={() => {
           return (
-            <Modal
-              onCancel={props.onClear}
-              // header="Error"
-              header={
-                <div className="times-icon-div">
-                  <FaExclamationTriangle className="times-icon" />
+            <>
+              <div
+                className={
+                  menuState
+                    ? "mobile-nav-overlay transparent-bcg"
+                    : "mobile-nav-overlay"
+                }
+                // onClick={closeHandler}
+
+                onClick={() => {
+                  props.history.push(props.match.url) && closeHandler();
+                }}
+              />
+
+              <div className={menuState ? "mobile-nav show-nav" : "mobile-nav"}>
+                <div className="mobile-nav-header">
+                  <h4>BENKIH</h4>
                 </div>
-              }
-              headerClass="header-color"
-              show={!!props.error}
-              footer={
-                <div className="modal-error">
-                  <button className="modal-error-btn" onClick={props.onClear}>
-                    Dismiss
-                  </button>
-                </div>
-              }
-            >
-              <div className="modal-error-content">
-                <div className="main-error">
-                  <h6>Oh, snap!</h6>
-                  <p>{props.error}</p>
-                </div>
+                <ul className="mobile-nav-links">
+                  <li className="mobile-nav-item">
+                    <a className="navbar-single-link" href="/">
+                      Task 1
+                    </a>
+                  </li>
+                  <li className="mobile-nav-item">
+                    <a className="navbar-single-link" href="/">
+                      Task 2
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </Modal>
+            </>
           );
         }}
       />
@@ -80,6 +121,7 @@ const HomePage = (props) => {
                             <Link
                               to={`${props.match.url}/${movie.id}`}
                               className="btn"
+                              onClick={openHandler}
                             >
                               View
                             </Link>
@@ -104,3 +146,41 @@ const mapStateToProps = (state) => {
   return { state };
 };
 export default connect(mapStateToProps)(HomePage);
+
+// {
+//   ReactDOM.createPortal(
+//     <div
+//       className={
+//         menuState ? "mobile-nav-overlay transparent-bcg" : "mobile-nav-overlay"
+//       }
+//       // onClick={closeHandler}
+
+//       onClick={() => {
+//         props.history.push(props.match.url) && closeHandler();
+//       }}
+//     />,
+//     document.getElementById("transparentbcg-hook"),
+//   );
+// }
+// {
+//   ReactDOM.createPortal(
+//     <div className={menuState ? "mobile-nav show-nav" : "mobile-nav"}>
+//       <div className="mobile-nav-header">
+//         <h4>BENKIH</h4>
+//       </div>
+//       <ul className="mobile-nav-links">
+//         <li className="mobile-nav-item">
+//           <a className="navbar-single-link" href="/">
+//             Task 1
+//           </a>
+//         </li>
+//         <li className="mobile-nav-item">
+//           <a className="navbar-single-link" href="/">
+//             Task 2
+//           </a>
+//         </li>
+//       </ul>
+//     </div>,
+//     document.getElementById("slidepage-hook"),
+//   );
+// }
