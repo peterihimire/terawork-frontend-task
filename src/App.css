@@ -2,7 +2,8 @@
 #page-container {
   position: relative;
   min-height: 100vh;
-  padding: 0 0 0 30rem;
+  /* padding: 0 0 0 30rem; */
+  margin: 0 0 0 30rem;
   /* background-color: brown; */
 }
 /****** GIVES EXTRA BOTTOM SPACE FOR FOOTER TO FIT IN  ******/

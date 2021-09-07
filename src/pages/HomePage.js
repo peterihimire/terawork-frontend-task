@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SideNav from "../components/SideNav";
 import Search from "../components/Search";
 import Title from "../components/Title";
@@ -10,15 +10,10 @@ import movies from "../movie-items";
 import movieImg from "../assets/img.png";
 import { Link, useHistory, Route, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
-
-// import Modal from "../components/Modal";
-// import "../components/Modal.css";
 import "../components/MovieSideBar.css";
-
 import ReactDOM from "react-dom";
-// import "./Backdrop.css";
-
-// import { FaExclamationTriangle } from "react-icons/fa";
+// import { CSSTransition } from "react-transition-group";
+import { FaArrowLeft } from "react-icons/fa";
 
 const HomePage = (props) => {
   console.log(props);
@@ -26,69 +21,90 @@ const HomePage = (props) => {
   let history = useHistory();
   console.log(location);
   console.log(history);
+  console.log(movies[4]);
 
-  // For Menu Handler
-  // const [menuState, setMenuState] = useState({
-  //   isOpen: false,
-  // });
+  // const [menuState, setMenuState] = useState(false);
 
   // const openHandler = () => {
-  //   setMenuState({
-  //     isOpen: !menuState.isOpen,
-  //   });
+  //   setMenuState(true);
   // };
   // const closeHandler = () => {
-  //   setMenuState({
-  //     isOpen: false,
-  //   });
+  //   setMenuState(false);
   // };
 
-  const [menuState, setMenuState] = useState(false);
-
-  const openHandler = () => {
-    setMenuState(true);
-  };
-  const closeHandler = () => {
-    setMenuState(false);
-  };
+  // const slideInPage = useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     console.log("has to work after 5 secs.");
+  //   }, 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <>
+      {/* THIS LAUNCHES THE SLIDE-PAGE AS A SUB-ROUTE OF THE MOVIE ROUTE */}
       <Route
         path={`${props.match.url}/:id`}
         render={() => {
           return (
             <>
-              <div
-                className={
-                  menuState
-                    ? "mobile-nav-overlay transparent-bcg"
-                    : "mobile-nav-overlay"
-                }
-                // onClick={closeHandler}
+              {ReactDOM.createPortal(
+                <div
+                  className={
+                    `${props.match.url}/:id`
+                      ? "mobile-nav-overlay transparent-bcg"
+                      : "mobile-nav-overlay"
+                  }
+                  // onClick={closeHandler}
 
-                onClick={() => {
-                  props.history.push(props.match.url) && closeHandler();
-                }}
-              />
+                  // className={
+                  //   menuState
+                  //     ? "mobile-nav-overlay transparent-bcg"
+                  //     : "mobile-nav-overlay"
+                  // }
+                  onClick={() => {
+                    props.history.push(props.match.url);
+                  }}
+                />,
+                document.getElementById("transparentbcg-hook"),
+              )}
+              {ReactDOM.createPortal(
+                // <CSSTransition
+                //   in={menuState}
+                //   mountOnEnter
+                //   unmountOnExit
+                //   timeout={200}
+                //   classNames="modally"
+                // >
+                <div
+                  className={
+                    `${props.match.url}/:id` ? "modally show-nav" : "modally"
+                  }
+                  // className="modally"
+                  // className={menuState ? "modally show-nav" : "modally"}
+                >
+                  <div className="slidepage">
+                    <div className="arrow-icon-div">
+                      <FaArrowLeft className="arrow-icon" />
+                    </div>
+                    <div className="slide-movie-img">
+                      <img src={movieImg} alt="poster" />
+                    </div>
 
-              <div className={menuState ? "mobile-nav show-nav" : "mobile-nav"}>
-                <div className="mobile-nav-header">
-                  <h4>BENKIH</h4>
-                </div>
-                <ul className="mobile-nav-links">
-                  <li className="mobile-nav-item">
-                    <a className="navbar-single-link" href="/">
-                      Task 1
-                    </a>
-                  </li>
-                  <li className="mobile-nav-item">
-                    <a className="navbar-single-link" href="/">
-                      Task 2
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                    <div className="slidepage-text">
+                      <h4>{movies[4].name}</h4>
+                      <p>{movies[4].description}</p>
+                    </div>
+
+                    <div className="slidepage-btn-div">
+                      <Link to="/" className="btn search-btn slidepage-btn">
+                        Watch
+                      </Link>
+                    </div>
+                  </div>
+                </div>,
+                // </CSSTransition>,
+                document.getElementById("slidepage-hook"),
+              )}
             </>
           );
         }}
@@ -121,7 +137,7 @@ const HomePage = (props) => {
                             <Link
                               to={`${props.match.url}/${movie.id}`}
                               className="btn"
-                              onClick={openHandler}
+                              // onClick={openHandler}
                             >
                               View
                             </Link>
@@ -146,41 +162,3 @@ const mapStateToProps = (state) => {
   return { state };
 };
 export default connect(mapStateToProps)(HomePage);
-
-// {
-//   ReactDOM.createPortal(
-//     <div
-//       className={
-//         menuState ? "mobile-nav-overlay transparent-bcg" : "mobile-nav-overlay"
-//       }
-//       // onClick={closeHandler}
-
-//       onClick={() => {
-//         props.history.push(props.match.url) && closeHandler();
-//       }}
-//     />,
-//     document.getElementById("transparentbcg-hook"),
-//   );
-// }
-// {
-//   ReactDOM.createPortal(
-//     <div className={menuState ? "mobile-nav show-nav" : "mobile-nav"}>
-//       <div className="mobile-nav-header">
-//         <h4>BENKIH</h4>
-//       </div>
-//       <ul className="mobile-nav-links">
-//         <li className="mobile-nav-item">
-//           <a className="navbar-single-link" href="/">
-//             Task 1
-//           </a>
-//         </li>
-//         <li className="mobile-nav-item">
-//           <a className="navbar-single-link" href="/">
-//             Task 2
-//           </a>
-//         </li>
-//       </ul>
-//     </div>,
-//     document.getElementById("slidepage-hook"),
-//   );
-// }
