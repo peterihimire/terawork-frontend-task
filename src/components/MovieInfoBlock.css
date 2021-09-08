@@ -1,0 +1,71 @@
+.movie-info-block h4 {
+  font-size: var(--small-font);
+  letter-spacing: 1.2px;
+}
+
+.movie-info-block-main {
+  display: flex;
+}
+.movie-info-block-text {
+  width: 500px;
+}
+.movie-info-block-detail p {
+  font-size: 1.7rem;
+  letter-spacing: 0.5px;
+  margin: 3rem 0;
+}
+.movie-info-block-img {
+  width: 300px;
+  height: 350px;
+  margin: 0 2rem 0 0;
+}
+.movie-info-block-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.date-rate-time {
+  display: flex;
+}
+.date-rate-time p {
+  font-size: 1.3rem;
+}
+.movie-info-icon {
+  margin: 0 0.5rem 0 0;
+}
+.movie-info-block-icon {
+  display: flex;
+  margin: 0 4rem 0 0;
+}
+.movie-info-block-icon p {
+  letter-spacing: 0.5px;
+  color: var(--darker-grey);
+}
+.movie-info-btn {
+  margin: 0;
+  color: var(--main-white);
+}
+.movie-heart-div {
+  padding: 2rem;
+  background-color: var(--lite-grey);
+  position: relative;
+  width: 50px;
+  height: 50px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  border-radius: 10px;
+  margin: 0 0 0 1rem;
+}
+.movie-heart-icon {
+  position: absolute;
+  /***** CENTERS ICON  *****/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.movie-info-block-btn-div {
+  display: flex;
+  align-items: center;
+  margin: 4rem 0 0 0;
+}
