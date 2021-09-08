@@ -84,7 +84,12 @@ const HomePage = (props) => {
                 >
                   <div className="slidepage">
                     <div className="arrow-icon-div">
-                      <FaArrowLeft className="arrow-icon" />
+                      <FaArrowLeft
+                        className="arrow-icon"
+                        onClick={() => {
+                          props.history.push(props.match.url);
+                        }}
+                      />
                     </div>
                     <div className="slide-movie-img">
                       <img src={movieImg} alt="poster" />
@@ -97,7 +102,7 @@ const HomePage = (props) => {
 
                     <div className="slidepage-btn-div">
                       <Link
-                        to={`/movie-details/`}
+                        to={`/movie-details/3`}
                         className="btn search-btn slidepage-btn"
                       >
                         Watch

@@ -23,7 +23,7 @@ function App() {
         <Router>
           <Switch>
             <Route path="/movies" component={HomePage} />
-            <Route path="/movie-details/:id" exact component={MovieDetails} />
+            <Route path="/movie-details/:id" component={MovieDetails} />
           </Switch>
         </Router>
       </div>

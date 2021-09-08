@@ -1,16 +1,15 @@
 import React from "react";
+import SideNav from "../components/SideNav";
+import MovieInfoBlock from "../components/MovieInfoBlock";
 
 const MovieDetails = () => {
   return (
     <div id="page-container" className="App">
       <div id="content-wrapper">
-        {/* <Navbar /> */}
-        {/* <Banner /> */}
+        <SideNav />
         <div className="main-content">
           <div className="main-content-container">
-            {/* <Title title="Move-out List" /> */}
-            {/* <OccupantColumns /> */}
-            {/* <OccupantList /> */}
+            <MovieInfoBlock />
           </div>
         </div>
       </div>
