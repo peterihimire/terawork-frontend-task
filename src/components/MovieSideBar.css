@@ -147,10 +147,12 @@
   /* margin: 4rem 0 0 0; */
 }
 .slidepage-text {
-  margin: 3rem 0;
+  margin: 5rem 0;
 }
 .slidepage-text h4 {
   padding: 0 0 2rem 0;
+  font-size: var(--small-font);
+  letter-spacing: 1.2px;
 }
 .slidepage-btn {
   margin: 0;

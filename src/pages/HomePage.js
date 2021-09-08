@@ -96,7 +96,10 @@ const HomePage = (props) => {
                     </div>
 
                     <div className="slidepage-btn-div">
-                      <Link to="/" className="btn search-btn slidepage-btn">
+                      <Link
+                        to={`/movie-details/`}
+                        className="btn search-btn slidepage-btn"
+                      >
                         Watch
                       </Link>
                     </div>

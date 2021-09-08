@@ -1,6 +1,6 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
-// import MovieSideBar from "./pages/MovieSideBar";
+import MovieDetails from "./pages/MovieDetails";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // redux things
 import { createStore } from "redux";
@@ -23,7 +23,7 @@ function App() {
         <Router>
           <Switch>
             <Route path="/movies" component={HomePage} />
-            {/* <Route path="/movie-sidebar/:id" exact component={MovieSideBar} /> */}
+            <Route path="/movie-details/:id" exact component={MovieDetails} />
           </Switch>
         </Router>
       </div>
