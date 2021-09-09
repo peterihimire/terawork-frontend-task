@@ -1,6 +1,7 @@
 import React from "react";
 import "./Search.css";
 import searchIcon from "../assets/Search-Black.svg";
+import searchIconWhite from "../assets/Search-White.svg";
 
 const Search = () => {
   return (
@@ -13,8 +14,13 @@ const Search = () => {
             </div>
             <input type="text" placeholder="Search" id="search" name="search" />
           </div>
-          <div>
+          <div className="hidden-xs visible-xl">
             <button className="btn search-btn">Search</button>
+          </div>
+          <div className="visible-xs hidden-xl">
+            <button className="btn search-btn">
+              <img src={searchIconWhite} alt="search icon" className="search-icon" />
+            </button>
           </div>
         </div>
       </form>

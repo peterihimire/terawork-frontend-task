@@ -6,7 +6,7 @@ import Title from "../components/Title";
 import "../components/MovieItem.css";
 import "../components/Result.css";
 import movies from "../movie-items";
-
+import logo from "../assets/Logo.svg";
 import movieImg from "../assets/img.png";
 import { Link, useHistory, Route, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
@@ -123,6 +123,9 @@ const HomePage = (props) => {
           <SideNav />
           <div className="main-content">
             <div className="main-content-container">
+              <div className="main-home-logo hidden-xl visible-xs visible-md">
+                <img src={logo} alt="logo" />
+              </div>
               <Title title="Explore" />
               <Search />
               {/* <Result /> */}

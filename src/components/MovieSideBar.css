@@ -164,7 +164,33 @@
 }
 /* TABLET */
 @media screen and (min-width: 768px) {
+  /* .modally {
+    position: fixed;
+    background: var(--main-white);
+    width: 20%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    color: var(--main-black);
+    box-shadow: 0 0 1.2rem 0 rgba(29, 28, 28, 0.849);
+    transition: all 0.5s linear;
+    transform: translateX(100%);
+  } */
 }
 /* LAPTOP */
 @media (min-width: 993px) {
+  /* .modally {
+    position: fixed;
+    background: var(--main-white);
+    width: 20%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    color: var(--main-black);
+    box-shadow: 0 0 1.2rem 0 rgba(29, 28, 28, 0.849);
+    transition: all 0.5s linear;
+    transform: translateX(100%);
+  } */
 }
