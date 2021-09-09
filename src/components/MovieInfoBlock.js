@@ -1,9 +1,11 @@
 import React from "react";
 import "./MovieInfoBlock.css";
 import movieImg from "../assets/img.png";
+import movies from "../movie-items";
+import { Link } from "react-router-dom";
 import { FaClock, FaStar, FaPlay, FaHeart } from "react-icons/fa";
 
-const MovieInfoBlock = () => {
+const MovieInfoBlock = (props) => {
   return (
     <div className="movie-info-block">
       <div className="movie-info-block-main">
@@ -47,6 +49,25 @@ const MovieInfoBlock = () => {
       </div>
       <div className="movie-info-block-similar">
         <h4>Similar Movies</h4>
+        <div className="movie-list-grid">
+          {movies.splice(1, 3).map((movie) => {
+            return (
+              <div className="" key={movie.id}>
+                {/* <MovieItem key={movie.id} movie={movie} /> */}
+                <article className="movie-item">
+                  <div className="movie-image-div">
+                    <img src={movieImg} alt="movie item" />
+                  </div>
+                  <div className="movie-btn-div">
+                    <Link to="#" className="btn">
+                      View
+                    </Link>
+                  </div>
+                </article>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

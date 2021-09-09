@@ -4,6 +4,7 @@ import "./SideNav.css";
 import searchIcon from "../assets/Search-White.svg";
 // import heartIcon from "../assets/Heart.svg";
 import { NavLink } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
 
 const SideNav = () => {
   return (
@@ -47,7 +48,7 @@ const SideNav = () => {
             </li>
             <li className="sidenav-item">
               <div className="sidenav-icon-div">
-                <img src={searchIcon} alt="search-logo" />
+                <FaHeart className="sidenav-heart-icon" />
               </div>
               <NavLink
                 activeClassName="active"

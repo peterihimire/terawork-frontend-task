@@ -18,7 +18,7 @@
 .sidenav-logo {
   padding: 0 0 0 5rem;
 }
-.sidenav-logo img{
+.sidenav-logo img {
   width: 55%;
 }
 .sidenav-item {
@@ -33,7 +33,7 @@
   background-color: var(--primary-color);
   border-radius: 5px;
 }
-.sidenav-icon-div img{
+.sidenav-icon-div img {
   width: 1rem;
 }
 .sidenav-item a {
@@ -42,4 +42,8 @@
   font-weight: bolder;
   text-transform: capitalize;
   padding: 0 0 0 3rem;
+}
+.sidenav-heart-icon {
+  color: var(--main-white);
+  font-size: 1rem;
 }

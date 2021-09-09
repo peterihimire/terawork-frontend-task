@@ -1,6 +1,7 @@
 .movie-info-block h4 {
-  font-size: var(--small-font);
+  font-size: var(--medium-font);
   letter-spacing: 1.2px;
+  padding: 5px 0 0 0;
 }
 
 .movie-info-block-main {
@@ -17,7 +18,7 @@
 .movie-info-block-img {
   width: 300px;
   height: 350px;
-  margin: 0 2rem 0 0;
+  margin: 0 3rem 0 0;
 }
 .movie-info-block-img img {
   width: 100%;
@@ -51,9 +52,6 @@
   position: relative;
   width: 50px;
   height: 50px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   border-radius: 10px;
   margin: 0 0 0 1rem;
 }
@@ -68,4 +66,10 @@
   display: flex;
   align-items: center;
   margin: 4rem 0 0 0;
+}
+.movie-info-block-similar {
+  margin: 5rem 0 0 0;
+}
+.movie-info-block-similar h4 {
+  margin: 0 0 3rem 0;
 }
