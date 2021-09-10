@@ -21,7 +21,7 @@ const HomePage = (props) => {
   let history = useHistory();
   console.log(location);
   console.log(history);
-  console.log(movies[4]);
+  // console.log(movies[4]);
 
   // const [menuState, setMenuState] = useState(false);
 
