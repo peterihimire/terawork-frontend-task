@@ -1,4 +1,5 @@
 export const ActionTypes = {
   GET_MOVIES: "GET_MOVIES",
+  SEARCH_VALIU: "SEARCH_VALIU",
   SELECTED_MOVIE: "SELECTED_MOVIE",
 };

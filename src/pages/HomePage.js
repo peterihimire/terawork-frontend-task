@@ -1,26 +1,33 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import SideNav from "../components/SideNav";
 import Search from "../components/Search";
 import Title from "../components/Title";
 // import Result from "../components/Result";
 import "../components/MovieItem.css";
 import "../components/Result.css";
-import movies from "../movie-items";
+// import movies from "../movie-items";
 import logo from "../assets/Logo.svg";
-import movieImg from "../assets/img.png";
-import { Link, useHistory, Route, useLocation } from "react-router-dom";
+// import movieImg from "../assets/img.png";
+import { Link, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import "../components/MovieSideBar.css";
 import ReactDOM from "react-dom";
 // import { CSSTransition } from "react-transition-group";
-import { FaArrowLeft } from "react-icons/fa";
+// import { FaArrowLeft } from "react-icons/fa";
+import { useSelector } from "react-redux";
+// import { searchValiu } from "../redux/actions/movieActions";
 
 const HomePage = (props) => {
   console.log(props);
-  let location = useLocation();
-  let history = useHistory();
-  console.log(location);
-  console.log(history);
+  // console.log(props);
+  console.log("This is the props" + props);
+  // let movieId = props.location && props.location.pathname.splice(1, 8);
+  let movieId = props.location && props.location.pathname;
+
+  // let location = useLocation();
+  // let history = useHistory();
+  // console.log(location);
+  // console.log(history);
   // console.log(movies[4]);
 
   // const [menuState, setMenuState] = useState(false);
@@ -38,6 +45,33 @@ const HomePage = (props) => {
   //   }, 5000);
   //   return () => clearTimeout(timer);
   // }, []);
+  const movies = useSelector((state) => {
+    // return state.allMovies.movies;
+    return state.allMovies.movies;
+  });
+  const searchValue = useSelector((state) => {
+    return state.allMovies.searchValue;
+  });
+  console.log("This are my movies" + movies);
+
+  const getSingleMovie = useCallback(() => {
+    fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=4a3b711b`)
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        if (jsonResponse.Response === "True") {
+          console.log("This is the single movie" + jsonResponse);
+
+          // dispatch(getMovies(jsonResponse.Search));
+        } else {
+          // setErrorMessage(jsonResponse.Error);
+          // setLoading(false);
+        }
+      });
+  }, [movieId]);
+
+  useEffect(() => {
+    getSingleMovie();
+  }, [getSingleMovie]);
 
   return (
     <>
@@ -82,7 +116,7 @@ const HomePage = (props) => {
                   // className="modally"
                   // className={menuState ? "modally show-nav" : "modally"}
                 >
-                  <div className="slidepage">
+                  {/* <div className="slidepage">
                     <div className="arrow-icon-div">
                       <FaArrowLeft
                         className="arrow-icon"
@@ -108,7 +142,7 @@ const HomePage = (props) => {
                         Watch
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
                 </div>,
                 // </CSSTransition>,
                 document.getElementById("slidepage-hook"),
@@ -132,23 +166,23 @@ const HomePage = (props) => {
               <div className="result">
                 <div className="result-head">
                   <p>
-                    Results for : <span>Mortal Kombat</span>
+                    Results for : <span>{searchValue}</span>
                   </p>
                 </div>
                 <div className="movie-list-grid">
                   {movies.map((movie) => {
                     return (
-                      <div className="" key={movie.id}>
+                      <div className="" key={movie.imdbID}>
                         {/* <MovieItem key={movie.id} movie={movie} /> */}
                         <article className="movie-item">
                           <div className="movie-image-div">
-                            <img src={movieImg} alt="movie item" />
+                            <img src={movie.Poster} alt="movie item" />
                           </div>
                           <div className="movie-btn-div">
                             <Link
-                              to={`${props.match.url}/${movie.id}`}
+                              to={`${props.match.url}/${movie.imdbID}`}
                               className="btn"
-                              // onClick={openHandler}
+                              onClick={getSingleMovie}
                             >
                               View
                             </Link>

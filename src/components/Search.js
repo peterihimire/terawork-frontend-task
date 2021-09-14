@@ -1,57 +1,60 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./Search.css";
 import searchIcon from "../assets/Search-Black.svg";
 import searchIconWhite from "../assets/Search-White.svg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { searchValiu, getMovies } from "../redux/actions/movieActions";
 
 const Search = () => {
   let searchVal = useSelector((state) => {
     return state.allMovies.searchValue;
   });
   console.log(searchVal);
+  const dispatch = useDispatch();
+
   // const { allMovies } = myState;
   // console.log(allMovies);
 
-  const searchOnChange = (e) => {
+  const handleSearchInput = (e) => {
     e.preventDefault();
     const value = e.target.value;
     console.log(value);
     console.log(e);
-    searchVal = value;
-    console.log(searchVal);
+    // UPDATE STATE WITH VALUE TO BE USED IN THE SEARCH
+    dispatch(searchValiu(value));
+    // searchVal = value;
+    // console.log(searchVal);
+    // return value;
   };
-
-  useEffect(() => {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=5d3baa22`)
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  }, []);
-  console.log(searchVal);
-
-  // const getMovies = () => {
-  //   fetch(`http://www.omdbapi.com/?i=${searchVal}&apikey=5d3baa22`)
+  // console.log(searchOnChange());
+  // useEffect(() => {
+  //   fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=5d3baa22`)
   //     .then((response) => response.json())
   //     .then((data) => console.log(data))
   //     .catch((err) => console.log(err));
-  // };
+  // }, []);
+  console.log(searchVal);
 
   const getMovieSearch = useCallback(() => {
-    fetch(`http://www.omdbapi.com/?i=${searchVal}&apikey=5d3baa22`)
+    fetch(`https://www.omdbapi.com/?s=${searchVal}&apikey=4a3b711b`)
       .then((response) => response.json())
-      .then((data) => {
-        console.log("This is the searched movie" + data);
-        // setArtistAlbumPhotos(data);
-      })
-      // .then((albumData) => {
-      //    console.log(albumData);
-      // })
-      .catch((err) => console.log(err));
-  }, [searchVal]);
+      .then((jsonResponse) => {
+        if (jsonResponse.Response === "True") {
+          console.log(jsonResponse.Search);
+          // setMovies(jsonResponse.Search);
+          // setLoading(false);
+          dispatch(getMovies(jsonResponse.Search));
+        } else {
+          // setErrorMessage(jsonResponse.Error);
+          // setLoading(false);
+        }
+      });
+  }, [searchVal, dispatch]);
 
-  // useEffect(() => {
-  //   getMovies();
-  // }, [getMovies]);
+  useEffect(() => {
+    getMovieSearch();
+  }, [getMovieSearch]);
+
   return (
     <div className="search">
       <form onSubmit={getMovieSearch}>
@@ -65,7 +68,7 @@ const Search = () => {
               placeholder="Search"
               id="search"
               name="search"
-              onChange={searchOnChange}
+              onChange={handleSearchInput}
             />
           </div>
           <div className="hidden-xs visible-xl">
