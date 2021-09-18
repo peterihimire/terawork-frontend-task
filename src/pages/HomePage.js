@@ -23,7 +23,7 @@ const HomePage = (props) => {
   console.log("This is the props" + props);
   // let movieId = props.location && props.location.pathname.splice(1, 8);
   let movieId = props.location && props.location.pathname;
-
+  console.log(movieId.slice(8));
   // let location = useLocation();
   // let history = useHistory();
   // console.log(location);
@@ -55,7 +55,7 @@ const HomePage = (props) => {
   console.log("This are my movies" + movies);
 
   const getSingleMovie = useCallback(() => {
-    fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=4a3b711b`)
+    fetch(`http://www.omdbapi.com/?i=${movieId.slice(8)}&apikey=4a3b711b`)
       .then((response) => response.json())
       .then((jsonResponse) => {
         if (jsonResponse.Response === "True") {
@@ -68,7 +68,7 @@ const HomePage = (props) => {
         }
       });
   }, [movieId]);
-
+  // tt7818310
   useEffect(() => {
     getSingleMovie();
   }, [getSingleMovie]);

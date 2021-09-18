@@ -6,7 +6,7 @@ const initialState = {
   searchValue: "",
   loading: true,
   movies: [],
-  movie: "",
+  movie: {},
 };
 
 export const movieReducer = (state = initialState, { type, payload }) => {
