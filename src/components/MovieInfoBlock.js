@@ -1,40 +1,46 @@
 import React from "react";
 import "./MovieInfoBlock.css";
-import movieImg from "../assets/img.png";
-import movies from "../movie-items";
 import { Link } from "react-router-dom";
 import { FaClock, FaStar, FaPlay, FaHeart } from "react-icons/fa";
+import { useSelector } from "react-redux";
+
 
 const MovieInfoBlock = (props) => {
+
+  const movie = useSelector((state) => {
+    return state.allMovies.movie;
+  });
+
+  const movies = useSelector((state) => {
+    return state.allMovies.movies;
+  });
+  console.log("This is the latest single movie " + movie);
+
+
   return (
     <div className="movie-info-block">
       <div className="movie-info-block-main">
         <div className="movie-info-block-img">
-          <img src={movieImg} alt="movie poster" />
+          <img src={movie.Poster} alt="movie poster" />
         </div>
         <div className="movie-info-block-text">
           <div className="movie-info-block-detail">
-            <h4>Mortal Kombat</h4>
-            <p>
-              This movie is for the lover of mortal Kombat. It is refreshing to
-              watchFind our taxis near you for affordable interstate transports.
-              This movie is for the lover of mortal Kombat. It is refreshing to
-              watchFind our taxis near you for affordable interstate transports
-            </p>
+            <h4>{movie.Title}</h4>
+            <p>{movie.Plot}</p>
           </div>
 
           <div className="date-rate-time">
             <div className="movie-info-block-icon">
               <FaClock className="movie-info-icon" />
-              <p>23 April 2021</p>
+              <p>{movie.Released}</p>
             </div>
             <div className="movie-info-block-icon">
               <FaStar className="movie-info-icon" />
-              <p>6.2</p>
+              <p>{movie.imdbRating}</p>
             </div>
             <div className="movie-info-block-icon">
               <FaPlay className="movie-info-icon" />
-              <p>1hr 50mins</p>
+              <p>{movie.Runtime}</p>
             </div>
           </div>
           <div className="movie-info-block-btn-div">
@@ -52,11 +58,11 @@ const MovieInfoBlock = (props) => {
         <div className="movie-list-grid">
           {movies.splice(1, 3).map((movie) => {
             return (
-              <div className="" key={movie.id}>
+              <div className="" key={movie.imdbID}>
                 {/* <MovieItem key={movie.id} movie={movie} /> */}
-                <article className="movie-item">
+                <article className="movie-item" key={movie.imdbID}>
                   <div className="movie-image-div">
-                    <img src={movieImg} alt="movie item" />
+                    <img src={movie.Poster} alt="movie item" />
                   </div>
                   <div className="movie-btn-div">
                     <Link to="#" className="btn">

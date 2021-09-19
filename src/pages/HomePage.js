@@ -13,11 +13,12 @@ import { connect } from "react-redux";
 import "../components/MovieSideBar.css";
 import ReactDOM from "react-dom";
 // import { CSSTransition } from "react-transition-group";
-// import { FaArrowLeft } from "react-icons/fa";
-import { useSelector } from "react-redux";
-// import { searchValiu } from "../redux/actions/movieActions";
+import { FaArrowLeft } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { selectedMovie } from "../redux/actions/movieActions";
 
 const HomePage = (props) => {
+  const dispatch = useDispatch();
   console.log(props);
   // console.log(props);
   console.log("This is the props" + props);
@@ -52,6 +53,10 @@ const HomePage = (props) => {
   const searchValue = useSelector((state) => {
     return state.allMovies.searchValue;
   });
+
+  const movie = useSelector((state) => {
+    return state.allMovies.movie;
+  });
   console.log("This are my movies" + movies);
 
   const getSingleMovie = useCallback(() => {
@@ -60,14 +65,13 @@ const HomePage = (props) => {
       .then((jsonResponse) => {
         if (jsonResponse.Response === "True") {
           console.log("This is the single movie" + jsonResponse);
-
-          // dispatch(getMovies(jsonResponse.Search));
+          dispatch(selectedMovie(jsonResponse));
         } else {
           // setErrorMessage(jsonResponse.Error);
           // setLoading(false);
         }
       });
-  }, [movieId]);
+  }, [movieId, dispatch]);
   // tt7818310
   useEffect(() => {
     getSingleMovie();
@@ -116,7 +120,7 @@ const HomePage = (props) => {
                   // className="modally"
                   // className={menuState ? "modally show-nav" : "modally"}
                 >
-                  {/* <div className="slidepage">
+                  <div className="slidepage">
                     <div className="arrow-icon-div">
                       <FaArrowLeft
                         className="arrow-icon"
@@ -126,23 +130,23 @@ const HomePage = (props) => {
                       />
                     </div>
                     <div className="slide-movie-img">
-                      <img src={movieImg} alt="poster" />
+                      <img src={movie.Poster} alt="poster" />
                     </div>
 
                     <div className="slidepage-text">
-                      <h4>{movies[4].name}</h4>
-                      <p>{movies[4].description}</p>
+                      <h4>{movie.title}</h4>
+                      <p>{movie.Plot}</p>
                     </div>
 
                     <div className="slidepage-btn-div">
                       <Link
-                        to={`/movie-details/3`}
+                        to={`/movie-details/${movieId.slice(8)}`}
                         className="btn search-btn slidepage-btn"
                       >
                         Watch
                       </Link>
                     </div>
-                  </div> */}
+                  </div>
                 </div>,
                 // </CSSTransition>,
                 document.getElementById("slidepage-hook"),

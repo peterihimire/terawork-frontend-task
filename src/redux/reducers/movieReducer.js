@@ -21,6 +21,9 @@ export const movieReducer = (state = initialState, { type, payload }) => {
     case ActionTypes.SEARCH_VALIU:
       console.log(state);
       return { ...state, searchValue: payload };
+    case ActionTypes.SELECTED_MOVIE:
+      console.log(state);
+      return { ...state, movie: payload };
     default:
       return state;
   }
