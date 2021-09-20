@@ -5,12 +5,14 @@ import { FaClock, FaStar, FaPlay, FaHeart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 
-const MovieInfoBlock = (props) => {
+const MovieInfoBlock = () => {
 
+  // DISPLAY THE DETAILS OF THE SINGLE IMAGE
   const movie = useSelector((state) => {
     return state.allMovies.movie;
   });
 
+  // DISPLAYS THE SIMILAR MOVIES
   const movies = useSelector((state) => {
     return state.allMovies.movies;
   });
@@ -18,6 +20,7 @@ const MovieInfoBlock = (props) => {
 
 
   return (
+    // DISPLAYS THE MOVIE INFO AND PLOT
     <div className="movie-info-block">
       <div className="movie-info-block-main">
         <div className="movie-info-block-img">
@@ -53,13 +56,13 @@ const MovieInfoBlock = (props) => {
           </div>
         </div>
       </div>
+      {/* DISPLAYS THE SIMILAR MOVIES */}
       <div className="movie-info-block-similar">
         <h4>Similar Movies</h4>
         <div className="movie-list-grid">
           {movies.splice(1, 3).map((movie) => {
             return (
               <div className="" key={movie.imdbID}>
-                {/* <MovieItem key={movie.id} movie={movie} /> */}
                 <article className="movie-item" key={movie.imdbID}>
                   <div className="movie-image-div">
                     <img src={movie.Poster} alt="movie item" />

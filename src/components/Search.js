@@ -12,37 +12,19 @@ const Search = () => {
   console.log(searchVal);
   const dispatch = useDispatch();
 
-  // const { allMovies } = myState;
-  // console.log(allMovies);
-
   const handleSearchInput = (e) => {
     e.preventDefault();
     const value = e.target.value;
-    console.log(value);
-    console.log(e);
     // UPDATE STATE WITH VALUE TO BE USED IN THE SEARCH
     dispatch(searchValiu(value));
-    // searchVal = value;
-    // console.log(searchVal);
-    // return value;
   };
-  // console.log(searchOnChange());
-  // useEffect(() => {
-  //   fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=5d3baa22`)
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data))
-  //     .catch((err) => console.log(err));
-  // }, []);
-  console.log(searchVal);
 
+  // SEARCH API
   const getMovieSearch = useCallback(() => {
     fetch(`https://www.omdbapi.com/?s=${searchVal}&apikey=4a3b711b`)
       .then((response) => response.json())
       .then((jsonResponse) => {
         if (jsonResponse.Response === "True") {
-          console.log(jsonResponse.Search);
-          // setMovies(jsonResponse.Search);
-          // setLoading(false);
           dispatch(getMovies(jsonResponse.Search));
         } else {
           // setErrorMessage(jsonResponse.Error);
