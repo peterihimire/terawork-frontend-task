@@ -20,3 +20,10 @@ export const searchValiu = (value) => {
     payload: value,
   };
 };
+
+export const getRandomMovies = (randomMovies) => {
+  return {
+    type: ActionTypes.GET_RANDOM_MOVIES,
+    payload: randomMovies,
+  };
+};

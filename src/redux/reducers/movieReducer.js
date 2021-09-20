@@ -7,6 +7,7 @@ const initialState = {
   loading: true,
   movies: [],
   movie: {},
+  randomMovies: [],
 };
 
 export const movieReducer = (state = initialState, { type, payload }) => {
@@ -24,6 +25,9 @@ export const movieReducer = (state = initialState, { type, payload }) => {
     case ActionTypes.SELECTED_MOVIE:
       console.log(state);
       return { ...state, movie: payload };
+    case ActionTypes.GET_RANDOM_MOVIES:
+      console.log(state);
+      return { ...state, randomMovies: payload };
     default:
       return state;
   }

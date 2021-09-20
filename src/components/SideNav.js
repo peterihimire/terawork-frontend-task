@@ -15,7 +15,7 @@ const SideNav = () => {
         </div>
         <div className="sidenav-main">
           <ul className="sidenav-links">
-            <li className="sidenav-item">
+          <li className="sidenav-item">
               <div className="sidenav-icon-div">
                 <img src={searchIcon} alt="search-logo" />
               </div>
@@ -23,6 +23,18 @@ const SideNav = () => {
                 activeClassName="active"
                 className="sidenav-single-link"
                 to="/"
+              >
+                home
+              </NavLink>
+            </li>
+            <li className="sidenav-item">
+              <div className="sidenav-icon-div">
+                <img src={searchIcon} alt="search-logo" />
+              </div>
+              <NavLink
+                activeClassName="active"
+                className="sidenav-single-link"
+                to="/movies"
               >
                 search
               </NavLink>
@@ -34,7 +46,7 @@ const SideNav = () => {
               <NavLink
                 activeClassName="active"
                 className="sidenav-single-link"
-                to="/"
+                to="/movies"
               >
                 watchlist
               </NavLink>
